@@ -40,13 +40,34 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Deploying to ttlifestyle.co.za
+## Deploying (GitHub Pages + domains.co.za)
 
-Any static host works. Two options:
+The site is hosted on **GitHub Pages**. The domain is registered at **domains.co.za**.
 
-- **Netlify / Cloudflare Pages (free):** connect this GitHub repo with no build command and `/` as the publish directory. Then add `ttlifestyle.co.za` as a custom domain and point the DNS records at the registrar as instructed.
-- **GitHub Pages:** in repo Settings → Pages, deploy from the branch. `CNAME` already contains `ttlifestyle.co.za`.
-- **cPanel / shared hosting** (common with .co.za registrars): upload the whole folder into `public_html`.
+**1. GitHub:** go to repo **Settings → Pages**.
+- Source: *Deploy from a branch*. Pick the branch the site lives on, folder `/ (root)`.
+- Custom domain: `ttlifestyle.co.za`. This matches the `CNAME` file in the repo.
+- Once the certificate is issued, tick **Enforce HTTPS**. This can take up to about an hour after DNS resolves.
+
+**2. DNS at domains.co.za:** in the DNS management panel for the domain:
+
+| Type  | Host / Name | Value                       |
+|-------|-------------|-----------------------------|
+| A     | @           | 185.199.108.153             |
+| A     | @           | 185.199.109.153             |
+| A     | @           | 185.199.110.153             |
+| A     | @           | 185.199.111.153             |
+| AAAA  | @           | 2606:50c0:8000::153         |
+| AAAA  | @           | 2606:50c0:8001::153         |
+| AAAA  | @           | 2606:50c0:8002::153         |
+| AAAA  | @           | 2606:50c0:8003::153         |
+| CNAME | www         | bluemondaystudios.github.io |
+
+Remove any other A, AAAA or CNAME records for `@` and `www`. Domain parking or "web forwarding" records will clash with these. Don't touch MX records, which carry email.
+
+**3. Optional:** verify the domain under GitHub **profile/org Settings → Pages → Verified domains**. This stops anyone else claiming it on GitHub Pages.
+
+Every push to the Pages branch redeploys the site within a minute or two. `.nojekyll` tells GitHub to serve the files as-is.
 
 After going live, submit `https://ttlifestyle.co.za/sitemap.xml` in Google Search Console. Add the website URL to the Google Business Profile as well.
 
