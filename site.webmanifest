@@ -1,0 +1,12 @@
+{
+  "name": "TT Lifestyle Pub & Restaurant",
+  "short_name": "TT Lifestyle",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf3e4",
+  "theme_color": "#1d1410",
+  "icons": [
+    { "src": "assets/img/brand/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/img/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
