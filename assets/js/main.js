@@ -173,7 +173,7 @@
     }
     var last = past[0];
     box.innerHTML = '<div class="empty">' +
-      '<div class="empty-copy"><p class="countdown">Next date loading…</p>' +
+      '<div class="empty-copy"><p class="countdown">SPRING FEST SZN</p>' +
       "<h3>The next big one is on its way.</h3>" +
       "<p>We drop a new event every season. Message us and we'll let you know as soon as the next poster lands. Until then, the lounge, garden and kitchen are open every day.</p>" +
       '<div class="hero-cta"><a class="btn btn-mustard" href="' + esc(waLink("Hi TT Lifestyle, please let me know about your next event.")) + '" target="_blank" rel="noopener">Notify me on WhatsApp</a>' +
